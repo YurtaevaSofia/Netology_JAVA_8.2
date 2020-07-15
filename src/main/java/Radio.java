@@ -2,6 +2,7 @@ public class Radio {
 
     private int currentVolume;
     private int currentRadiostationNumber;
+    private int numberOfRadiostations = 10;
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -16,7 +17,7 @@ public class Radio {
     }
 
     public void setCurrentRadiostationNumber(int currentRadiostationNumber) {
-        if (currentRadiostationNumber > 9 || currentRadiostationNumber <0){
+        if (currentRadiostationNumber > numberOfRadiostations || currentRadiostationNumber <0){
             System.out.println("Try other Radio station number ");
             return;
         }
@@ -24,17 +25,17 @@ public class Radio {
     }
 
     public void nextRadiostation () {
-        if (currentRadiostationNumber == 9) currentRadiostationNumber = 0;
+        if (currentRadiostationNumber == numberOfRadiostations) currentRadiostationNumber = 0;
         else currentRadiostationNumber++;
     }
 
     public void previousRadiostation () {
-        if (currentRadiostationNumber == 0) currentRadiostationNumber = 9;
+        if (currentRadiostationNumber == 0) currentRadiostationNumber = numberOfRadiostations;
         else currentRadiostationNumber--;
     }
 
     public void volumeIncrease () {
-        if (currentVolume == 10) return;
+        if (currentVolume == 100) return;
         currentVolume++;
     }
 
@@ -43,4 +44,10 @@ public class Radio {
         currentVolume--;
     }
 
+    public Radio(int numberOfRadiostations) {
+        this.numberOfRadiostations = numberOfRadiostations;
+    }
+
+    public Radio() {
+    }
 }
